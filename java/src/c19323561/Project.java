@@ -1,16 +1,20 @@
-package c19323561;
+package C19323561;
 
 import ie.tudublin.Visual;
+import ie.tudublin.VisualException;
 
-public class Project extends Visual{
+import processing.core.PApplet;
+
+
+public class Project extends Visual
+{
     
+    WaveForm wf;
+    AudioBandsVisual abv;
+
     public void settings()
     {
-        //size(1024, 500);
         fullScreen();
-
-        // Use this to make fullscreen and use P3D for 3D graphics
-        //fullScreen(P3D, SPAN); 
     }
 
     public void setup()
@@ -18,14 +22,11 @@ public class Project extends Visual{
         startMinim();
                 
         // Call loadAudio to load an audio file to process 
-        loadAudio("heroplanet.mp3");   
-
-        
-        // Call this instead to read audio from the microphone
-        //startListening(); 
-        
+        loadAudio("Cradles.mp3");
+    
         wf = new WaveForm(this);
         abv = new AudioBandsVisual(this);
+        projectObject.add(new Rain(this));
     }
 
     public void keyPressed()
@@ -54,7 +55,7 @@ public class Project extends Visual{
 
         // Call this is you want to get the average amplitude
         calculateAverageAmplitude();        
-        wf.render();
-        abv.render();
+        //wf.render();
+        //abv.render();
     }
 }
