@@ -2,7 +2,6 @@ package C19323561;
 
 import ie.tudublin.Visual;
 import ie.tudublin.VisualException;
-
 import processing.core.PApplet;
 
 
@@ -11,10 +10,11 @@ public class Project extends Visual
     
     WaveForm wf;
     AudioBandsVisual abv;
+    Rain r;
 
     public void settings()
     {
-        fullScreen();
+        size(1500, 800);
     }
 
     public void setup()
@@ -23,24 +23,21 @@ public class Project extends Visual
                 
         // Call loadAudio to load an audio file to process 
         loadAudio("Cradles.mp3");
-    
+        //ProjectObject.add(new Rain(this));
+
         wf = new WaveForm(this);
         abv = new AudioBandsVisual(this);
-        projectObject.add(new Rain(this));
-    }
-
-    public void keyPressed()
-    {
-        if (key == ' ')
-        {
-            getAudioPlayer().cue(0);
-            getAudioPlayer().play();
-        }
+        r = new Rain(this);
     }
 
     public void draw()
     {
-        background(0);
+        fill(255);
+        background(175,238,238);
+
+        r.update();
+        r.render();
+
         try
         {
             // Call this if you want to use FFT data
@@ -57,5 +54,14 @@ public class Project extends Visual
         calculateAverageAmplitude();        
         //wf.render();
         //abv.render();
+    }
+
+    public void keyPressed()
+    {
+        if (key == ' ')
+        {
+            getAudioPlayer().cue(0);
+            getAudioPlayer().play();
+        }
     }
 }
