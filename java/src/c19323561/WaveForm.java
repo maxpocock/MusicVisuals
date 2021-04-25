@@ -25,7 +25,7 @@ public class WaveForm
                 , 255
             );
 
-            pro.line(i, cy, i, cy + cy * pro.getAudioBuffer().get(i));
+            pro.line(cy, i, i, cy + cy * pro.getAudioBuffer().get(i));
         }
     }
 }

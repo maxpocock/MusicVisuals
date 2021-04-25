@@ -7,10 +7,12 @@ import processing.core.PApplet;
 
 public class Project extends Visual
 {
-    
+    int selection = 1;
+
     WaveForm wf;
     AudioBandsVisual abv;
     Rain r;
+    Dial d;
 
     public void settings()
     {
@@ -21,26 +23,23 @@ public class Project extends Visual
     {
         startMinim();
                 
-        // Call loadAudio to load an audio file to process 
         loadAudio("Cradles.mp3");
-        //ProjectObject.add(new Rain(this));
+        getAudioPlayer().cue(0);
+        getAudioPlayer().play();
 
         wf = new WaveForm(this);
         abv = new AudioBandsVisual(this);
         r = new Rain(this);
+        d = new Dial(this);
     }
 
     public void draw()
     {
         fill(255);
-        background(175,238,238);
-
-        r.update();
-        r.render();
+        background(0);
 
         try
         {
-            // Call this if you want to use FFT data
             calculateFFT(); 
         }
         catch(VisualException e)
@@ -53,15 +52,32 @@ public class Project extends Visual
         // Call this is you want to get the average amplitude
         calculateAverageAmplitude();        
         //wf.render();
-        //abv.render();
+        switch(selection)
+        {
+            case 1:
+                d.render();
+            break;
+
+            case 2:
+                abv.render();
+            break;
+
+            case 3:
+                
+            break;
+
+            case 4:
+                r.render();
+                r.update();
+            break;
+        }
     }
 
     public void keyPressed()
     {
-        if (key == ' ')
+        if (keyCode >= '1' && keyCode <= '4')
         {
-            getAudioPlayer().cue(0);
-            getAudioPlayer().play();
+            selection = keyCode - '0';
         }
     }
 }
