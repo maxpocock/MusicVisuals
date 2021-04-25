@@ -2,8 +2,7 @@ package C19323561;
 
 import ie.tudublin.Visual;
 import ie.tudublin.VisualException;
-import processing.core.PApplet;
-
+import  javax.swing.JFrame;
 
 public class Project extends Visual
 {
