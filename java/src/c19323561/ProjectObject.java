@@ -16,7 +16,7 @@ public abstract class ProjectObject {
     float directionX, directionY;
     float speed = 5;
     Project pro;
-    int w = 100;
+    int w = 75;
     int halfW = w / 2;
 
     public ProjectObject(Project pro, float x, float y)
