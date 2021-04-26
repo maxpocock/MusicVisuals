@@ -2,7 +2,7 @@ package C19323561;
 
 import ie.tudublin.Visual;
 import ie.tudublin.VisualException;
-import  javax.swing.JFrame;
+import ddf.minim.AudioPlayer;
 
 public class Project extends Visual
 {
@@ -11,7 +11,9 @@ public class Project extends Visual
     WaveForm wf;
     AudioBandsVisual abv;
     Rain r;
-    Dial d;
+    Ball b;
+    AudioPlayer ap;
+    Sunset s;
 
     public void settings()
     {
@@ -29,7 +31,8 @@ public class Project extends Visual
         wf = new WaveForm(this);
         abv = new AudioBandsVisual(this);
         r = new Rain(this);
-        d = new Dial(this);
+        b = new Ball(this);
+        s = new Sunset(this);
     }
 
     public void draw()
@@ -54,7 +57,11 @@ public class Project extends Visual
         switch(selection)
         {
             case 1:
-                d.render();
+                //abv.render();
+                //b.spawn();
+                //b.render();
+                //b.update();
+                s.render();
             break;
 
             case 2:
