@@ -38,9 +38,13 @@ public class Rain extends ProjectObject {
 
     public void render()
     {
+        pro.fill(150,255,255);
+        pro.background(150,255,255);
+        
+
         pro.pushMatrix();
         pro.translate(x1, y1);
-        pro.stroke(255,255,255);
+        pro.stroke(0);
         pro.line(-halfW, -halfW, -50, -3 * halfW);
         pro.line(halfW, -halfW, 50, -3 * halfW);
         pro.line(0, -50, 0, -3 * 40);
@@ -51,7 +55,7 @@ public class Rain extends ProjectObject {
 
         pro.pushMatrix();
         pro.translate(x2, y2);
-        pro.stroke(255,255,255);
+        pro.stroke(0);
         pro.line(-halfW, -halfW, -50, -3 * halfW);
         pro.line(halfW, -halfW, 50, -3 * halfW);
         pro.line(0, -50, 0, -3 * 40);
@@ -63,7 +67,7 @@ public class Rain extends ProjectObject {
 
         pro.pushMatrix();
         pro.translate(x3, y3);
-        pro.stroke(255,255,255);
+        pro.stroke(0);
         pro.line(-halfW, -halfW, -50, -3 * halfW);
         pro.line(halfW, -halfW, 50, -3 * halfW);
         pro.line(0, -50, 0, -3 * 40);
@@ -75,7 +79,7 @@ public class Rain extends ProjectObject {
 
         pro.pushMatrix();
         pro.translate(x4, y4);
-        pro.stroke(255,255,255);
+        pro.stroke(0);
         pro.line(-halfW, -halfW, -50, -3 * halfW);
         pro.line(halfW, -halfW, 50, -3 * halfW);
         pro.line(0, -50, 0, -3 * 40);
@@ -87,7 +91,7 @@ public class Rain extends ProjectObject {
 
         pro.pushMatrix();
         pro.translate(x5, y5);
-        pro.stroke(255,255,255);
+        pro.stroke(0);
         pro.line(-halfW, -halfW, -50, -3 * halfW);
         pro.line(halfW, -halfW, 50, -3 * halfW);
         pro.line(0, -50, 0, -3 * 40);
@@ -99,7 +103,7 @@ public class Rain extends ProjectObject {
 
         pro.pushMatrix();
         pro.translate(x6, y6);
-        pro.stroke(255,255,255);
+        pro.stroke(0);
         pro.line(-halfW, -halfW, -50, -3 * halfW);
         pro.line(halfW, -halfW, 50, -3 * halfW);
         pro.line(0, -50, 0, -3 * 40);
@@ -111,7 +115,7 @@ public class Rain extends ProjectObject {
 
         pro.pushMatrix();
         pro.translate(x7, y7);
-        pro.stroke(255,255,255);
+        pro.stroke(0);
         pro.line(-halfW, -halfW, -50, -3 * halfW);
         pro.line(halfW, -halfW, 50, -3 * halfW);
         pro.line(0, -50, 0, -3 * 40);
@@ -123,7 +127,7 @@ public class Rain extends ProjectObject {
 
         pro.pushMatrix();
         pro.translate(x8, y8);
-        pro.stroke(255,255,255);
+        pro.stroke(0);
         pro.line(-halfW, -halfW, -50, -3 * halfW);
         pro.line(halfW, -halfW, 50, -3 * halfW);
         pro.line(0, -50, 0, -3 * 40);
@@ -135,7 +139,7 @@ public class Rain extends ProjectObject {
 
         pro.pushMatrix();
         pro.translate(x9, y9);
-        pro.stroke(255, 255, 255);
+        pro.stroke(0);
         pro.line(-halfW, -halfW, -50, -3 * halfW);
         pro.line(halfW, -halfW, 50, -3 * halfW);
         pro.line(0, -50, 0, -3 * 40);
@@ -147,7 +151,7 @@ public class Rain extends ProjectObject {
 
         pro.pushMatrix();
         pro.translate(x10, y10);
-        pro.stroke(255,255,255);
+        pro.stroke(0);
         pro.line(-halfW, -halfW, -50, -3 * halfW);
         pro.line(halfW, -halfW, 50, -3 * halfW);
         pro.line(0, -50, 0, -3 * 40);

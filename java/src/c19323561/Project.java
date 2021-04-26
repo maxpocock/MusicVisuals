@@ -37,7 +37,7 @@ public class Project extends Visual
 
     public void draw()
     {
-        fill(255);
+        fill(150,255,255);
         background(0);
 
         try
@@ -57,10 +57,6 @@ public class Project extends Visual
         switch(selection)
         {
             case 1:
-                //abv.render();
-                //b.spawn();
-                //b.render();
-                //b.update();
                 s.render();
             break;
 
@@ -69,7 +65,8 @@ public class Project extends Visual
             break;
 
             case 3:
-                
+                b.render();
+                b.update();
             break;
 
             case 4:

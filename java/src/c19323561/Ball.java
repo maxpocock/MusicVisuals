@@ -15,6 +15,7 @@ public class Ball extends PApplet{
     public Ball (Project pro)
     {
         this.pro = pro;
+        spawn();
     }    
 
     void spawn()
@@ -22,17 +23,24 @@ public class Ball extends PApplet{
         x = pro.width/2;
         y = pro.height/2;
 
-        dirX = 4;
-        dirY = 4;
+        dirX = pro.random(-4,4);
+        dirY = pro.random(-4,4);
     }
 
     public void render()
     {
+        pro.background(150,255,255);
         pro.pushMatrix();
         pro.translate(x, y);
-        pro.stroke(255,255,255);
-        pro.fill(225, 116, 66);
-        pro.circle(0, 0, 100);        
+        pro.noStroke();
+        pro.colorMode(PApplet.HSB);
+        for(int i = 0; i < pro.getAudioBuffer().size(); i++)
+            {
+                pro.fill(
+                PApplet.map(i, 0, pro.getAudioBuffer().size(), 0, 255), 255, 255);
+            }
+        pro.circle(0, 0, 100);  
+        pro.colorMode(PApplet.RGB);      
         pro.popMatrix();
     }
 
@@ -41,13 +49,14 @@ public class Ball extends PApplet{
         x += dirX;
         y += dirY;
 
-        if (y >= pro.height - 100)
+        if (y >= pro.height - 50 || y <= 55)
         {
-            dirY = -dirY;
+            dirY = (-1) * dirY;
         }
-        else if ( y >= 100)
+
+        if (x >= pro.width - 50 || x <= 55)
         {
-            dirY = -dirY;
+            dirX = (-1) * dirX; 
         }
     }
 

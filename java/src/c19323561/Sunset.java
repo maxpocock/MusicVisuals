@@ -22,8 +22,6 @@ public class Sunset extends PApplet
         pro.circle(pro.width/2 + 5, pro.height/2, pro.height/2);
         pro.fill(32, 178, 170);
         pro.rect(pro.width/3, pro.height/2, pro.width/3 + 10, pro.height);
-        //pro.fill(207, 174, 66);
-        //pro.circle(pro.width/2 + 5, pro.height/6, pro.height/6);
 
         for(int i = 0 ; i < pro.getAudioBuffer().size() ; i ++)
         {
