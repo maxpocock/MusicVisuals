@@ -11,6 +11,7 @@ public class Ball extends PApplet{
     float x, y;
     float dirX;
     float dirY;
+    int selection = 1;
 
     public Ball (Project pro)
     {
@@ -23,12 +24,13 @@ public class Ball extends PApplet{
         x = pro.width/2;
         y = pro.height/2;
 
-        dirX = pro.random(-4,4);
-        dirY = pro.random(-4,4);
+        dirX = 0;
+        dirY = 0;
     }
 
     public void render()
     {
+        pro.calculateAverageAmplitude();
         pro.background(150,255,255);
         pro.pushMatrix();
         pro.translate(x, y);
@@ -36,16 +38,21 @@ public class Ball extends PApplet{
         pro.colorMode(PApplet.HSB);
         for(int i = 0; i < pro.getAudioBuffer().size(); i++)
             {
-                pro.fill(
-                PApplet.map(i, 0, pro.getAudioBuffer().size(), 0, 255), 255, 255);
+                pro.circle(0, 0, map(pro.getSmoothedAmplitude(), 0, 1, 0, 300));
+                pro.fill(PApplet.map(pro.getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
             }
-        pro.circle(0, 0, 100);  
+         
         pro.colorMode(PApplet.RGB);      
         pro.popMatrix();
     }
 
     public void update()
     {
+        if (selection == 9 && dirX == 0)
+        {
+            dirX = pro.random(-4,4);
+            dirY = pro.random(-4,4);
+        }
         x += dirX;
         y += dirY;
 
@@ -57,6 +64,14 @@ public class Ball extends PApplet{
         if (x >= pro.width - 50 || x <= 55)
         {
             dirX = (-1) * dirX; 
+        }
+    }
+
+    public void keyPressed()
+    {
+        if(keyCode == '9')
+        {
+            selection = keyCode - '0';
         }
     }
 
