@@ -1,34 +1,30 @@
 package C19323561;
 
-import ddf.minim.AudioBuffer;
-import ddf.minim.AudioPlayer;
-import ddf.minim.Minim;
-import ie.tudublin.Visual;
 import processing.core.PApplet;
 
-public class Ball extends PApplet{
+public class Ball extends PApplet {
     Project pro;
     float x, y;
     float dirX;
     float dirY;
-    int selection = 1;
+    boolean move = false;
 
     public Ball (Project pro)
     {
         this.pro = pro;
-        spawn();
+        setup();
     }    
 
-    void spawn()
+    public void setup()
     {
         x = pro.width/2;
         y = pro.height/2;
 
-        dirX = 0;
-        dirY = 0;
+        dirX = pro.random(-4,4);
+        dirY = pro.random(-4,4);
     }
 
-    public void render()
+    public void draw()
     {
         pro.calculateAverageAmplitude();
         pro.background(150,255,255);
@@ -38,21 +34,12 @@ public class Ball extends PApplet{
         pro.colorMode(PApplet.HSB);
         for(int i = 0; i < pro.getAudioBuffer().size(); i++)
             {
+
                 pro.circle(0, 0, map(pro.getSmoothedAmplitude(), 0, 1, 0, 300));
                 pro.fill(PApplet.map(pro.getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
             }
-         
         pro.colorMode(PApplet.RGB);      
         pro.popMatrix();
-    }
-
-    public void update()
-    {
-        if (selection == 9 && dirX == 0)
-        {
-            dirX = pro.random(-4,4);
-            dirY = pro.random(-4,4);
-        }
         x += dirX;
         y += dirY;
 
@@ -67,13 +54,10 @@ public class Ball extends PApplet{
         }
     }
 
-    public void keyPressed()
+    @Override
+    public void mousePressed()
     {
-        if(keyCode == '9')
-        {
-            selection = keyCode - '0';
-        }
+        background(50);
     }
-
 }
     

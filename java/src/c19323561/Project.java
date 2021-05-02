@@ -8,8 +8,6 @@ public class Project extends Visual
 {
     int selection = 1;
 
-    WaveForm wf;
-    AudioBandsVisual abv;
     Rain r;
     Ball b;
     AudioPlayer ap;
@@ -28,8 +26,6 @@ public class Project extends Visual
         getAudioPlayer().cue(0);
         getAudioPlayer().play();
 
-        wf = new WaveForm(this);
-        abv = new AudioBandsVisual(this);
         r = new Rain(this);
         b = new Ball(this);
         s = new Sunset(this);
@@ -48,12 +44,9 @@ public class Project extends Visual
         {
             e.printStackTrace();
         }
-        // Call this is you want to use frequency bands
+        
         calculateFrequencyBands(); 
-
-        // Call this is you want to get the average amplitude
         calculateAverageAmplitude();        
-        //wf.render();
         switch(selection)
         {
             case 1:
@@ -61,24 +54,19 @@ public class Project extends Visual
             break;
 
             case 2:
-                abv.render();
+                r.render();
+                r.update();
             break;
 
             case 3:
-                b.render();
-                b.update();
-            break;
-
-            case 4:
-                r.render();
-                r.update();
+                b.draw();
             break;
         }
     }
 
     public void keyPressed()
     {
-        if (keyCode >= '1' && keyCode <= '4')
+        if (keyCode >= '1' && keyCode <= '3')
         {
             selection = keyCode - '0';
         }

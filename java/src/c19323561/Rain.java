@@ -155,7 +155,7 @@ public class Rain extends ProjectObject {
         pro.line(-halfW, -halfW, -50, -3 * halfW);
         pro.line(halfW, -halfW, 50, -3 * halfW);
         pro.line(0, -50, 0, -3 * 40);
-        pro.stroke(225, 116, 66);
+        pro.stroke(0);
         pro.fill(225, 116, 66);
         pro.circle(0, 0, w);
         pro.fill(0);
