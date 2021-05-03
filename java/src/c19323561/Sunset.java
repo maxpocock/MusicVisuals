@@ -15,6 +15,7 @@ public class Sunset extends PApplet
 
     public void render()
     {
+        pro.background(0);
         pro.noStroke();
         pro.fill(150,255,255);
         pro.rect(pro.width/3, 0, pro.width/3 + 10,  pro.height/2);

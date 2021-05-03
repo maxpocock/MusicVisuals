@@ -22,6 +22,7 @@ public class Ball extends PApplet {
 
         dirX = pro.random(-4,4);
         dirY = pro.random(-4,4);
+        
     }
 
     public void draw()
@@ -34,7 +35,6 @@ public class Ball extends PApplet {
         pro.colorMode(PApplet.HSB);
         for(int i = 0; i < pro.getAudioBuffer().size(); i++)
             {
-
                 pro.circle(0, 0, map(pro.getSmoothedAmplitude(), 0, 1, 0, 300));
                 pro.fill(PApplet.map(pro.getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
             }
@@ -52,12 +52,6 @@ public class Ball extends PApplet {
         {
             dirX = (-1) * dirX; 
         }
-    }
-
-    @Override
-    public void mousePressed()
-    {
-        background(50);
     }
 }
     

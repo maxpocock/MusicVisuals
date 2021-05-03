@@ -8,7 +8,7 @@ public class Project extends Visual
 {
     int selection = 1;
 
-    Rain r;
+    Rain[] r = new Rain[100];
     Ball b;
     AudioPlayer ap;
     Sunset s;
@@ -26,15 +26,17 @@ public class Project extends Visual
         getAudioPlayer().cue(0);
         getAudioPlayer().play();
 
-        r = new Rain(this);
+        for(int i = 0; i < r.length; i++)
+        {
+            r[i] = new Rain(this);
+        }
         b = new Ball(this);
         s = new Sunset(this);
     }
 
     public void draw()
     {
-        fill(150,255,255);
-        background(0);
+        background(150,255,255);
 
         try
         {
@@ -54,8 +56,11 @@ public class Project extends Visual
             break;
 
             case 2:
-                r.render();
-                r.update();
+                for(int i = 0; i < r.length; i++)
+                {
+                    r[i].render();
+                    r[i].update();
+                }
             break;
 
             case 3:
