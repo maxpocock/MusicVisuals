@@ -1,7 +1,7 @@
 package C19323561;
 
 public abstract class ProjectObject {
-    
+    //superclass used for rain
 
     float x1, y1;
     float directionY;

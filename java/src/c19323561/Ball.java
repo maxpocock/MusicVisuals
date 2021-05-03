@@ -7,7 +7,6 @@ public class Ball extends PApplet {
     float x, y;
     float dirX;
     float dirY;
-    boolean move = false;
 
     public Ball (Project pro)
     {
@@ -25,6 +24,7 @@ public class Ball extends PApplet {
         
     }
 
+    //draws the ball using a matrix
     public void draw()
     {
         pro.calculateAverageAmplitude();
@@ -43,6 +43,7 @@ public class Ball extends PApplet {
         x += dirX;
         y += dirY;
 
+        //stops ball leaving the screen
         if (y >= pro.height - 50 || y <= 55)
         {
             dirY = (-1) * dirY;

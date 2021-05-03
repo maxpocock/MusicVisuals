@@ -7,9 +7,11 @@ public class Rain extends ProjectObject {
 
     public Rain (Project pro)
     {
+        //member of ProjectObject superclass
         super(pro, 0, 0);
     }
 
+    //renders the raindrop
     public void render()
     {
         pro.pushMatrix();
@@ -23,12 +25,14 @@ public class Rain extends ProjectObject {
         pro.popMatrix();
     }
 
+    //moves raindrop to top of screen once it leaves the screen
     public void update()
     {
         y1 += directionY;
 
         if (y1 > pro.height + 150)
         {
+            x1 = pro.random(pro.width)
             y1 = pro.random(-500, -50);
         }
 

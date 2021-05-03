@@ -8,6 +8,7 @@ public class Project extends Visual
 {
     int selection = 1;
 
+    //making rain an array allows us to call it multiple times
     Rain[] r = new Rain[60];
     Ball b;
     AudioPlayer ap;
@@ -23,6 +24,8 @@ public class Project extends Visual
         startMinim();
                 
         loadAudio("Cradles.mp3");
+
+        //this loop calls rain r.length times
         for(int i = 0; i < r.length; i++)
         {
             r[i] = new Rain(this);
@@ -45,13 +48,17 @@ public class Project extends Visual
         }
         
         calculateFrequencyBands(); 
-        calculateAverageAmplitude();        
+        calculateAverageAmplitude();     
+        
+        //this switch controls navigating between the visualizers
         switch(selection)
         {
+            //sunset
             case 1:
                 s.render();
             break;
 
+            //rain
             case 2:
                 for(int i = 0; i < r.length; i++)
                 {
@@ -60,6 +67,7 @@ public class Project extends Visual
                 }
             break;
 
+            //ball
             case 3:
                 b.draw();
             break;
@@ -69,29 +77,21 @@ public class Project extends Visual
     @Override
     public void keyPressed()
     {
+        //for navigation
         if (keyCode >= '1' && keyCode <= '3')
         {
             selection = keyCode - '0';
         }
 
+        //starts the music
         if (key == ' ')
         {
             getAudioPlayer().cue(0);
             getAudioPlayer().play();
         }
-
-        if (keyCode == '0')
-        {
-            b.x = width/2;
-            b.y = height/2;
-        }
-        else
-        {
-            b.x += b.dirX;
-            b.y += b.dirY;
-        }
     }
 
+    //move the ball
     @Override
     public void mouseDragged()
     {
@@ -102,6 +102,7 @@ public class Project extends Visual
         
     }
 
+    //allow ball to move again
     @Override
     public void mouseClicked()
     {
